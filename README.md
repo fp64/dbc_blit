@@ -62,7 +62,7 @@ some more detailed timings.
 
 #### Misc
 
-Version 2.0.5.
+Version 2.0.7.
 
 Original developmnet thread: https://gamedev.ru/flame/forum/?id=218515 (in Russian).
 

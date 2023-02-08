@@ -156,12 +156,6 @@ https://github.com/nothings/stb/issues/81
     dbcb_allow_avx2_for_mode(mode,modulated) to control SIMD at
     runtime on per-mode basis. This may look something like this:
 
-    Note: some older OSes (Windows 95 and earlier, Linux kernel
-    before something like 2.4) may not have the OS-level support for SSE
-    (do not preserve the state on context switch). The dbc_blit.h does not
-    check for it. If you need to support them, consider checking it yourself
-    and using dbcb_allow_sse2_for_mode()/dbcb_allow_avx2_for_mode().
-
 // Determined by whatever means.
 extern int sse2_is_slow;
 // Suppose only alpha test is fast enough to overtake SIMD. Alpha test
@@ -173,6 +167,12 @@ extern int sse2_is_slow;
     The expressions these macros expand to do not need to be compile-time
     constants. They are each evaluated once per dbc_blit() call (assuming
     SSE2/AVX2 are enabled).
+
+    Note: some older OSes (Windows 95 and earlier, Linux kernel
+    before something like 2.4) may not have the OS-level support for SSE
+    (do not preserve the state on context switch). The dbc_blit.h does not
+    check for it. If you need to support them, consider checking it yourself
+    and using dbcb_allow_sse2_for_mode()/dbcb_allow_avx2_for_mode().
 
 UNROLLING
     To improve the blitting speed of small sprites, dbc_blit uses unrolling
